@@ -1,5 +1,14 @@
 fn main() {
     // You can optionally experiment here.
+    let mut x: Vec<i32> = Vec::new();
+    let z = &mut x;
+
+    z.push(41);
+
+    let y = &mut x;
+    y.push(42);
+
+    println!("{:?}", x);
 }
 
 #[cfg(test)]
@@ -9,10 +18,15 @@ mod tests {
     #[test]
     fn move_semantics4() {
         let mut x = Vec::new();
-        let y = &mut x;
         let z = &mut x;
-        y.push(42);
         z.push(13);
+        let y = &mut x;
+
+        // let mut y = x.clone();
+        // let mut z = x.clone();
+
+        y.push(42);
+
         assert_eq!(x, [42, 13]);
     }
 }
