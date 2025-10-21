@@ -27,7 +27,7 @@ fn main() {
 
     // WARNING: This is byte indexing, not character indexing.
     // Character indexing can be done using `s.chars().nth(INDEX)`.
-    string_slice(&String::from("abc")[0..1]);  //e When you slice an string , it's an &str
+    string_slice(&String::from("abc")[0..1]); //e When you slice an string , it's an &str
 
     string_slice("  hello there ".trim());
 

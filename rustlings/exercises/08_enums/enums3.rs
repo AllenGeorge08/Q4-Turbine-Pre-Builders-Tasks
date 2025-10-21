@@ -48,15 +48,16 @@ impl State {
         // variants using the methods defined above.
 
         match message {
-           Message::Resize { width: widthh, height: heightt}  => self.resize(widthh, heightt),
-           Message::Quit => self.quit() ,
-           Message::ChangeColor(red, green, blue) => self.change_color(red, green, blue),
-           Message::Echo(message) => self.echo(message), 
-           Message::Move(point) => self.move_position(point),
-
+            Message::Resize {
+                width: widthh,
+                height: heightt,
+            } => self.resize(widthh, heightt),
+            Message::Quit => self.quit(),
+            Message::ChangeColor(red, green, blue) => self.change_color(red, green, blue),
+            Message::Echo(message) => self.echo(message),
+            Message::Move(point) => self.move_position(point),
         }
     }
-
 }
 
 fn main() {

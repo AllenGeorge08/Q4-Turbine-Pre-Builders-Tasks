@@ -1,13 +1,15 @@
 // In this exercise, you'll learn some of the unique advantages that iterators
 // can offer.
 
+use std::fmt::format;
+
 // TODO: Complete the `capitalize_first` function.
 // "hello" -> "Hello"
 fn capitalize_first(input: &str) -> String {
-    let mut chars = input.chars();
-    match chars.next() {
+    let mut chars = input.chars(); //e Strings in rust aren't directly indexable because of utf-8. So we use .chars() to get an iterator over characters..
+    match chars.next() { //e We take the first character, next() returns Option<char> (either Some(char) or None)
         None => String::new(),
-        Some(first) => todo!(),
+        Some(first) => format!("{}{}",first.to_uppercase(),chars.as_str()) //e There should be no space between spaceholders
     }
 }
 
@@ -16,6 +18,8 @@ fn capitalize_first(input: &str) -> String {
 // ["hello", "world"] -> ["Hello", "World"]
 fn capitalize_words_vector(words: &[&str]) -> Vec<String> {
     // ???
+    let result = words.iter().map(|x| capitalize_first(x)).collect();
+    result 
 }
 
 // TODO: Apply the `capitalize_first` function again to a slice of string
@@ -23,10 +27,21 @@ fn capitalize_words_vector(words: &[&str]) -> Vec<String> {
 // ["hello", " ", "world"] -> "Hello World"
 fn capitalize_words_string(words: &[&str]) -> String {
     // ???
+    let result = words.iter().map(|x| capitalize_first(x)).collect();
+    result 
 }
 
 fn main() {
     // You can optionally experiment here.
+    let small_string = "allen";
+    let result = capitalize_first(small_string);
+    println!("{}",result);
+
+    let words = vec!["hello"," ", "world"];
+
+    let capitalize_words_string_result = capitalize_words_string(&words);
+    println!("{}",capitalize_words_string_result);
+
 }
 
 #[cfg(test)]

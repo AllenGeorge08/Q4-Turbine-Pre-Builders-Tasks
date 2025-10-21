@@ -1,8 +1,5 @@
 // You can bring module paths into scopes and provide new names for them with
 // the `use` and `as` keywords.
-
-
-
 pub mod delicious_snacks {
     // // TODO: Add the following two `use` statements after fixing them.
     pub use self::fruits::PEAR as fruit;
@@ -20,7 +17,6 @@ pub mod delicious_snacks {
 }
 
 fn main() {
-
     println!(
         "favorite snacks: {} and {}",
         delicious_snacks::fruit,

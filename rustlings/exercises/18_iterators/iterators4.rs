@@ -10,10 +10,22 @@ fn factorial(num: u64) -> u64 {
     // - additional variables
     // For an extra challenge, don't use:
     // - recursion
+
+    //e How to do this using an iterator? Yep, using map..How'll we convert num into an arr or vec?
+    let numbers: Vec<u64> = (1..=num).collect();
+    // let result : Vec<u64> = numbers.iter().map(|&x| x).collect();
+    let factorial  =numbers.iter().fold(1, |acc,&x|  acc * x); //e Acc starts at 1 and then iterates over all elements in the array
+    factorial
+
+    //Alternative:
+    // numbers.iter().product()
 }
 
 fn main() {
     // You can optionally experiment here.
+
+    let factorial_10 = factorial(10);
+    println!("{}", factorial_10);
 }
 
 #[cfg(test)]
@@ -37,5 +49,6 @@ mod tests {
     #[test]
     fn factorial_of_4() {
         assert_eq!(factorial(4), 24);
+
     }
 }
